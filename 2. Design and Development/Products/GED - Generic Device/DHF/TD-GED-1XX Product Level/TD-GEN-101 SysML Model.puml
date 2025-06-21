@@ -15,6 +15,21 @@ package "Requirements" {
 
 package "Logical Architecture" {
 
+class MedicalDevice {
+    + powerSupply: PowerModule
+    + userInterface: HMI
+    + controlSystem: EmbeddedController
+    + patientInterface: SensorModule
+}
+
+class Enclosure
+class PowerModule
+class Sensors
+class Hardware
+class Firmware
+class Software
+class HMI
+
 }
 
 package "Functional Architecture" {

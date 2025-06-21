@@ -1,4 +1,53 @@
 @startuml
+'Compile with plantUML Online Server https://www.plantuml.com/plantuml/uml
 allow_mixing
 
+'RLFP
+
+package "System" {
+package "Requirements" {
+  class BasicSafety <<requirement>>
+  class EssentialPerformance <<requirement>>
+  class LeakageCurrentLimit <<requirement>>
+  class ControlRisk1 <<requirement>>
+  class ControlRisk2 <<requirement>>
+}
+
+package "Logical Architecture" {
+
+}
+
+package "Functional Architecture" {
+
+}
+
+package "Physical Architecture" {
+
+}
+
+package "Use Cases" {
+'Intended user profiles per IEC 62366-1
+  actor HealthcareProfessionals
+  actor Technician
+  actor Patient
+  actor LayPerson
+
+  usecase "Run Self-Test" as UC1
+  usecase "Log Failure" as UC2
+  usecase "Primary operating function: Display Alarm" as UC3
+  usecase "Primary operating function: Monitor Patient" as UC4
+  usecase "Abnormal use" as UC5
+  usecase "Hazard-related use scenario" as UC6
+
+  HealthcareProfessionals --> UC1
+  Technician --> UC1
+  HealthcareProfessionals --> UC2
+  Technician --> UC2
+  HealthcareProfessionals --> UC3
+  HealthcareProfessionals --> UC4
+  HealthcareProfessionals --> UC5
+  HealthcareProfessionals --> UC6
+}
+
+}
 @enduml

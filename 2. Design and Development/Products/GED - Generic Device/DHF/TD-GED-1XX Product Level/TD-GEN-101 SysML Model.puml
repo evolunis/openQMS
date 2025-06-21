@@ -34,19 +34,27 @@ package "Use Cases" {
 
   usecase "Run Self-Test" as UC1
   usecase "Log Failure" as UC2
-  usecase "Primary operating function: Display Alarm" as UC3
-  usecase "Primary operating function: Monitor Patient" as UC4
-  usecase "Abnormal use" as UC5
-  usecase "Hazard-related use scenario" as UC6
-
   HealthcareProfessionals --> UC1
   Technician --> UC1
   HealthcareProfessionals --> UC2
   Technician --> UC2
-  HealthcareProfessionals --> UC3
-  HealthcareProfessionals --> UC4
+  
+  package "Primary operating functions" {
+   usecase "Display Alarm" as UC3
+   usecase "Monitor Patient" as UC4
+   HealthcareProfessionals --> UC3
+   HealthcareProfessionals --> UC4
+  }
+  
+  package "Abnormal use" {
+  usecase "AN use case 1" as UC5
   HealthcareProfessionals --> UC5
+  }
+  package "Hazard-related use scenarios" {
+  usecase "HR use case 1" as UC6
   HealthcareProfessionals --> UC6
+  }
+
 }
 
 }
